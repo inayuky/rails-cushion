@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <div class="post-container">
+    <p><%= post.content %></p>
+    <p><%= post.user.name %></p>
+  </div>
+<% end %>

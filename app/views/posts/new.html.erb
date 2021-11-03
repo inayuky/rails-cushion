@@ -1,0 +1,7 @@
+<%= form_with(model: @post, local: true) do |f| %>
+  <div>
+    <%= f.label :content, "内容" %>
+    <%= f.text_field :content %>
+  </div>
+  <%= f.submit "投稿" %>
+<% end %>

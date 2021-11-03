@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :users
   get "login", to: "users#login_form"
   post "login", to: "users#login"
