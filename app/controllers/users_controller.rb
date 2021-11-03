@@ -27,14 +27,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to users_url
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render "edit"
+    end
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_url
+    redirect_to root_url
   end
 
   def login_form
@@ -44,7 +47,7 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to users_url
+      redirect_to posts_path
     else
       render "login_form"
     end
@@ -52,7 +55,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to root_url
+    redirect_to login_path
   end
 
   private

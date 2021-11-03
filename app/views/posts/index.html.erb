@@ -2,5 +2,7 @@
   <div class="post-container">
     <p><%= post.content %></p>
     <p><%= post.user.name %></p>
+    <p><%= link_to("編集", edit_post_path(post)) %></p>
+    <p><%= link_to("削除", post_path(post), method: "delete") %></p>
   </div>
 <% end %>
