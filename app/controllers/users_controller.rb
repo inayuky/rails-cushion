@@ -32,6 +32,19 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def login_form
+  end
+
+  def login
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect_to users_url
+    else
+      render "login_form"
+    end
+  end
+
   private
 
     def user_params
