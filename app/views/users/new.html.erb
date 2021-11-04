@@ -1,22 +1,2 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-7 mt-4 py-3 border">
-      <%= form_with(model: @user, local: true) do |f| %>
-        <div class="form-group">
-          <%= f.label :name, "名前" %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :email, "Eメール" %>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password, "パスワード" %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-        <%= f.submit "登録", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
+<% provide(:button_text, "登録") %>
+<%= render("form") %>
