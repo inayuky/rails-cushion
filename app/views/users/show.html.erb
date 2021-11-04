@@ -1,4 +1,21 @@
-<p><%= @user.name %></p>
-<p><%= @user.email %></p>
-<p><%= link_to("編集", edit_user_path) %></p>
-<p><%= link_to("削除", user_path, method: "delete") %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-7 mt-4 py-3 border">
+      <table class="table table-sm">
+        <tbody>
+        <tr>
+          <th scope="row">名前：</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th scope="row">Eメール：</th>
+          <td><%= @user.email %></td>
+        </tr>
+        </tbody>
+      </table>
+      <%= link_to("編集", edit_user_path, class: "btn btn-primary") %>
+      <%= link_to("削除", user_path, class: "btn btn-danger") %>
+    </div>
+  </div>
+</div>
+

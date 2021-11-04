@@ -14,4 +14,4 @@ ActiveStorage.start()
 
 import "bootstrap"
 import "bootstrap/scss/bootstrap.scss"
-import "../custom.css"
+import "../custom.scss"

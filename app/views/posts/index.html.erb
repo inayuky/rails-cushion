@@ -1,8 +1,23 @@
-<% @posts.each do |post| %>
-  <div class="post-container">
-    <p><%= post.content %></p>
-    <p><%= post.user.name %></p>
-    <p><%= link_to("編集", edit_post_path(post)) %></p>
-    <p><%= link_to("削除", post_path(post), method: "delete") %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <% @posts.each do |post| %>
+      <div class="col-md-9 mt-4 py-3 border">
+        <table class="table table-sm">
+          <tbody>
+          <tr>
+            <th scope="row">内容：</th>
+            <td><%= post.content %></td>
+          </tr>
+          <tr>
+            <th scope="row">ユーザ名：</th>
+            <td><%= post.user.name %></td>
+          </tr>
+          </tbody>
+        </table>
+        <%= link_to("編集", edit_post_path(post), class: "btn btn-primary") %>
+        <%= link_to("削除", post_path(post), method: :delete, class: "btn btn-danger") %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+
