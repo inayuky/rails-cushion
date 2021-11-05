@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "ユーザ削除が完了しました"
-    redirect_to root_url
+    redirect_to users_url
   end
 
   def login_form
