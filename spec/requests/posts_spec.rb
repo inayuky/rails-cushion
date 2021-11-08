@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Posts", type: :request do
+  before do
+    set_user_to_session(create(:user))
+  end
+
   describe "GET /posts" do
     it "responds normal" do
       get posts_path
@@ -11,10 +15,9 @@ RSpec.describe "Posts", type: :request do
   describe "POST create post" do
     it "creates post and responds normal" do
       post_params = attributes_for(:post)
-      user_id = create(:user).id
-      allow_any_instance_of(ActionDispatch::Request)
-        .to receive(:session).and_return(user_id: user_id)
-      post_params[:user_id] = user_id
+      user = create(:user)
+      set_user_to_session(user)
+      post_params[:user_id] = user.id
       expect {
         post posts_path, params: { post: post_params }
       }.to change { Post.count }.by(1)

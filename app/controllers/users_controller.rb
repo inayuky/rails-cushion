@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :logout]
+
   def index
     @users = User.page(params[:page])
   end
@@ -53,7 +55,8 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:success] = "ログインしました"
-      redirect_to posts_path
+      redirect_to(session[:forwarding_url] || posts_path)
+      session.delete(:forwarding_url)
     else
       flash[:danger] = "ログインに失敗しました"
       render "login_form"

@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
+  before do
+    set_user_to_session(create(:user))
+  end
 
   describe "GET /users" do
     it "responds normal" do
