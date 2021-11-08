@@ -34,7 +34,9 @@ RSpec.describe "Posts", type: :request do
 
   describe "GET edit post" do
     it "responds normal" do
-      get edit_post_path(create(:post))
+      post = create(:post)
+      set_user_to_session(post.user) # TODO 先にuserをcreateして、set_user_to_sessionし、beforeでは実行しない方がいいか。
+      get edit_post_path(post)
       expect(response).to have_http_status(:success)
     end
   end
@@ -42,6 +44,7 @@ RSpec.describe "Posts", type: :request do
   describe "PUT update post" do
     it "updates post and responds normal" do
       @post = create(:post)
+      set_user_to_session(@post.user) # TODO 先にuserをcreateして、set_user_to_sessionし、beforeでは実行しない方がいいか。
       post_params = attributes_for(:post)
       put post_path(@post), params: { post: post_params }
       expect(response).to redirect_to(posts_url)
@@ -53,6 +56,7 @@ RSpec.describe "Posts", type: :request do
   describe "DELETE destroy post" do
     it "destroy post and responds normal" do
       post = create(:post)
+      set_user_to_session(post.user) # TODO 先にuserをcreateして、set_user_to_sessionし、beforeでは実行しない方がいいか。
       expect {
         delete post_path(post)
       }.to change { Post.count }.by(-1)

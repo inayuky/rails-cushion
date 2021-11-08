@@ -30,8 +30,7 @@ RSpec.describe "Users", type: :system do
   end
 
   scenario "login succeed and post deletion succeed" do
-    create(:same_user)
-    create(:post)
+    create(:post, user: create(:same_user))
     user_params = attributes_for(:same_user)
     visit root_path
     click_link "ログイン"

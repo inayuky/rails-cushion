@@ -21,7 +21,9 @@ RSpec.describe "Users", type: :request do
 
   describe "GET edit user" do
     it "responds normal" do
-      get edit_user_path(create(:user))
+      user = create(:user)
+      set_user_to_session(user)
+      get edit_user_path(user)
       expect(response).to have_http_status(:success)
     end
   end
@@ -46,6 +48,7 @@ RSpec.describe "Users", type: :request do
   describe "PUT update user" do
     it "update user and responds normal" do
       user = create(:user)
+      set_user_to_session(user)
       user_params = attributes_for(:user)
       put user_path(user), params: { user: user_params }
       expect(response).to redirect_to(user)
@@ -58,6 +61,7 @@ RSpec.describe "Users", type: :request do
   describe "DELETE destroy user" do
     it "destroy user and responds normal" do
       user = create(:user)
+      set_user_to_session(user)
       expect {
         delete user_path(user)
       }.to change{ User.count }.by(-1)
