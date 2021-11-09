@@ -15,6 +15,10 @@
             <th scope="row">ユーザ名：</th>
             <td><%= post.user.name %></td>
           </tr>
+          <tr>
+            <th scope="row">投稿日時：</th>
+            <td><%= time_ago_in_words post.created_at %></td>
+          </tr>
           </tbody>
         </table>
         <% if @current_user && post.user == @current_user %>
