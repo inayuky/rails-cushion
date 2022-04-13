@@ -9,7 +9,7 @@ orbs:
 jobs:
   build: #  "build"という名前の最初のジョブです。
     docker:
-      - image: cimg/ruby:2.7-node # カスタマイズされた CircleCI Docker イメージを使用します。
+      - image: cimg/ruby:2.7.2-node # カスタマイズされた CircleCI Docker イメージを使用します。
     steps:
       - checkout # Git コードをプルダウンします。
       - ruby/install-deps # Ruby Orb を使って依存関係をインストールします。
