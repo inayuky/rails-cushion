@@ -55,16 +55,14 @@ jobs:
           cache-key: "yarn.lock"
       # ここでは、データベース上で実行する前に
       # セカンダリコンテナが起動することを確認します。
-
       - run:
           name: DB の待機
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
       - run:
           name: データベースのセットアップ
           command: bundle exec rails db:schema:load --trace
-            # RSpec を並列実行します。
-            - ruby/rspec-test
+      # RSpec を並列実行します。
+      - ruby/rspec-test
 
 workflows:
   version: 2
