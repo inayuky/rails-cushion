@@ -63,8 +63,8 @@ jobs:
       - run:
           name: データベースのセットアップ
           command: bundle exec rails db:schema:load --trace
-          # RSpec を並列実行します。
-          - ruby/rspec-test
+            # RSpec を並列実行します。
+            - ruby/rspec-test
 
 workflows:
   version: 2
