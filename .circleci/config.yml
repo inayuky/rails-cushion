@@ -63,6 +63,7 @@ jobs:
           command: bundle exec rails db:schema:load --trace
       # RSpec を並列実行します。
       - ruby/rspec-test
+      - ruby/rubocop-check
 
 workflows:
   version: 2
