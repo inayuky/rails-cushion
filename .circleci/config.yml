@@ -63,7 +63,9 @@ jobs:
           command: bundle exec rails db:schema:load --trace
       # RSpec を並列実行します。
       - ruby/rspec-test
-      - ruby/rubocop-check
+      - run:
+          name: RuboCop
+          command: bundle exec rubocop --fail-level W --display-only-fail-level-offenses
 
 workflows:
   version: 2
