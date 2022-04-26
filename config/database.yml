@@ -16,4 +16,5 @@ test:
 
 production:
   <<: *default
+  database: rails_cushion_production
   password: <%= ENV['RAILS_CUSHION_DATABASE_PASSWORD'] %>
