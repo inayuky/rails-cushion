@@ -9,6 +9,7 @@ require "capistrano/rails/migrations" # マイグレーションをするため
 
 require "capistrano/puma"
 install_plugin Capistrano::Puma # CapistranoとPumaを連携
+install_plugin Capistrano::Puma::Systemd # PumaをSystemdで操作
 install_plugin Capistrano::Puma::Nginx # PumaとNginxを連携
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
