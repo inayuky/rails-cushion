@@ -17,4 +17,4 @@ test:
 production:
   <<: *default
   database: rails_cushion_production
-  password: <%= Rails.application.credentials.db[:password] %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
