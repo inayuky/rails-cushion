@@ -27,13 +27,7 @@ jobs:
     # ここでは、2 つの Docker イメージを設定します。
     docker:
       - image: cimg/ruby:2.7.2-node # プライマリ Docker イメージです。ここでステップコマンドが実行されます。
-#        auth:
-#          username: mydockerhub-user
-#          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
       - image: cimg/postgres:14.0
-#        auth:
-#          username: mydockerhub-user
-#          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment: # add POSTGRES environment variables.
           POSTGRES_USER: rails_cushion
           POSTGRES_DB: rails_cushion_test
