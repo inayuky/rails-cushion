@@ -1,4 +1,6 @@
-# README
+# rails-cushion
+
+[![CircleCI](https://circleci.com/gh/inayuky/rails-cushion/tree/main.svg?style=svg)](https://circleci.com/gh/inayuky/rails-cushion/tree/main)
 
 ## 画面設計
 
