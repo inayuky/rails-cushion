@@ -3,8 +3,8 @@ version: 2.1 # 2.1 を使うと Orb や他の機能を使用することがで�
 # 設定で使用する Orb を宣言します。
 # Orb に関する詳細は、https://circleci.com/docs/ja/2.0/orb-intro/をご覧ください。
 orbs:
-  ruby: circleci/ruby@1.1.0
-  node: circleci/node@2
+  ruby: circleci/ruby@1.8.0
+  node: circleci/node@5.0.0
 
 jobs:
   build: #  "build"という名前の最初のジョブです。
