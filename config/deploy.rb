@@ -19,3 +19,4 @@ set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
 append :linked_files, 'config/credentials/production.key'
+append :linked_dirs, "log", "tmp/pids", "tmp/sockets"

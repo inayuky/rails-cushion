@@ -53,3 +53,5 @@
     - model
     - request
     - integration
+- CircleCIによるCI
+- Capistranoによるデプロイ
